@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nexora Utilities</title>
+  <meta name="description" content="Nexora Utilities - reliable energy and water services for modern businesses." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --fg: #ffffff;
+      --muted: #bfbfbf;
+      --accent: #ffffff; /* keep b-w palette */
+      --card: #121212;
+      --border: #2a2a2a;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--fg);
+      background: radial-gradient(1200px 600px at 20% 0%, #141414 0%, var(--bg) 60%);
+      letter-spacing: 0.1px;
+    }
+    a { color: var(--fg); text-decoration: none; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(11,11,11,0.8); backdrop-filter: saturate(120%) blur(6px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { display:flex; align-items:center; gap: 10px; font-weight: 800; letter-spacing: 0.5px; }
+    .brand .logo { width: 28px; height: 28px; border: 2px solid var(--fg); border-radius: 6px; display: grid; place-items: center; font-size: 16px; }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .btn { padding: 10px 16px; border: 1px solid var(--fg); border-radius: 10px; background: transparent; color: var(--fg); cursor: pointer; transition: transform 0.1s ease, background 0.2s ease; }
+    .btn:hover { background: #1a1a1a; }
+    .btn:active { transform: translateY(1px); }
+
+    /* Hero */
+    .hero { padding: 80px 0 40px; text-align: center; }
+    .tag { display:inline-block; padding: 6px 12px; border:1px solid var(--border); border-radius: 999px; color: var(--muted); font-size: 12px; letter-spacing: 0.6px; text-transform: uppercase; }
+    h1 { font-size: clamp(34px, 6vw, 64px); line-height: 1.05; margin: 18px 0 12px; }
+    .subtitle { color: var(--muted); font-size: clamp(14px, 2.4vw, 18px); max-width: 780px; margin: 0 auto; }
+    .hero-cta { margin-top: 28px; display:flex; gap:12px; justify-content:center; flex-wrap: wrap; }
+    .btn-primary { background: var(--fg); color: var(--bg); border-color: var(--fg); font-weight: 600; }
+    .btn-primary:hover { background: #eaeaea; }
+
+    /* Feature grid */
+    .section { padding: 64px 0; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { border:1px solid var(--border); background: linear-gradient(180deg, #111 0%, #0e0e0e 100%); border-radius: 16px; padding: 22px; }
+    .card h3 { margin: 0 0 6px; font-size: 18px; }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    /* About strip */
+    .about { border:1px solid var(--border); background: var(--card); border-radius: 16px; padding: 28px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: center; }
+    .about p { color: var(--muted); }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 13px; color: var(--muted); }
+
+    /* Logos row */
+    .logos { display:flex; gap: 36px; flex-wrap: wrap; align-items:center; justify-content:center; opacity: 0.75; }
+    .logo-pill { border:1px solid var(--border); padding: 10px 14px; border-radius: 999px; font-size: 13px; }
+
+    /* CTA banner */
+    .cta { text-align:center; border:1px solid var(--border); background: linear-gradient(180deg, #0f0f0f 0%, #0a0a0a 100%); border-radius:16px; padding: 34px; }
+
+    /* Footer */
+    footer { border-top:1px solid var(--border); padding: 30px 0 60px; color: var(--muted); }
+    .foot { display:flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .small { font-size: 12px; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+      .about { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .grid { grid-template-columns: 1fr; }
+      .nav-links { display:none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#" class="brand" aria-label="Nexora Utilities home">
+        <span class="logo" aria-hidden="true">N</span>
+        <span>Nexora Utilities</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="#contact">Get a quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <span class="tag">Trusted utility partner</span>
+      <h1>Reliable energy and water for modern business</h1>
+      <p class="subtitle">We help teams reduce outages, cut costs, and plan smarter with metering, analytics, and 24-7 support. Clean layout. Clear value. Minimal distractions.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#contact">Start a conversation</a>
+        <a class="btn" href="#services">See what we offer</a>
+      </div>
+    </section>
+
+    <section class="section container" id="services">
+      <div class="grid">
+        <div class="card">
+          <h3>Smart metering</h3>
+          <p>Accurate consumption data with secure device management and simple dashboards.</p>
+        </div>
+        <div class="card">
+          <h3>Energy optimization</h3>
+          <p>Peak shaving, demand response, and on site storage guidance to lower spend.</p>
+        </div>
+        <div class="card">
+          <h3>Water management</h3>
+          <p>Leak detection and usage alerts so you only pay for what you use.</p>
+        </div>
+        <div class="card">
+          <h3>24-7 monitoring</h3>
+          <p>Real time alerts and human backup from our operations desk when it matters.</p>
+        </div>
+        <div class="card">
+          <h3>Compliance and reporting</h3>
+          <p>Automated reports for ESG, municipal, and internal audits without the headache.</p>
+        </div>
+        <div class="card">
+          <h3>Advisory</h3>
+          <p>From tariff analysis to solar feasibility, get recommendations you can act on.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="about">
+      <div class="about">
+        <div>
+          <h2>About Nexora Utilities</h2>
+          <p>We combine pragmatic engineering with clean design. Our team builds resilient utility solutions that just work. No gimmicks. No noise. Only what your operations need.</p>
+          <p class="mono">HQ: Anywhere. Support: Everywhere. SLA: 99.95 percent target.</p>
+        </div>
+        <div class="cta">
+          <h3>Need a quick estimate</h3>
+          <p class="subtitle" style="margin: 8px auto 16px;">Tell us your monthly usage and we will send a ballpark in your inbox.</p>
+          <a class="btn btn-primary" href="#contact">Get a quote</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" aria-label="Client logos">
+      <div class="logos">
+        <span class="logo-pill">CivicWorks</span>
+        <span class="logo-pill">BrightGrid</span>
+        <span class="logo-pill">UrbanFlow</span>
+        <span class="logo-pill">Riverline</span>
+        <span class="logo-pill">Metroplex</span>
+      </div>
+    </section>
+
+    <section class="section container" id="contact">
+      <div class="about">
+        <div>
+          <h2>Contact</h2>
+          <p class="mono">Email: hello@nexora.example</p>
+          <p class="mono">Phone: +27 00 000 0000</p>
+          <p class="mono">Address: 101 Plain Street, Johannesburg</p>
+        </div>
+        <form class="card" onsubmit="event.preventDefault(); alert('Thanks. We will be in touch.');">
+          <label class="small" for="name">Name</label>
+          <input id="name" name="name" required style="margin:6px 0 14px; width:100%; padding:12px; border-radius:10px; border:1px solid var(--border); background:#0c0c0c; color:var(--fg)" />
+          <label class="small" for="email">Email</label>
+          <input id="email" name="email" type="email" required style="margin:6px 0 14px; width:100%; padding:12px; border-radius:10px; border:1px solid var(--border); background:#0c0c0c; color:var(--fg)" />
+          <label class="small" for="msg">Message</label>
+          <textarea id="msg" name="msg" rows="4" style="margin:6px 0 16px; width:100%; padding:12px; border-radius:10px; border:1px solid var(--border); background:#0c0c0c; color:var(--fg)"></textarea>
+          <button class="btn btn-primary" type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">N</span>
+        <span>Nexora Utilities</span>
+      </div>
+      <div class="small">© <span id="year"></span> Nexora. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
